@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Facebook, Instagram, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Telescope } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -21,6 +21,9 @@ const Footer = () => {
               </a>
               <a href="#" className="bg-white/10 p-3 rounded-full hover:bg-shop-blue-dark transition-colors">
                 <Twitter className="h-5 w-5" />
+              </a>
+              <a href="#" className="bg-white/10 p-3 rounded-full hover:bg-shop-blue-dark transition-colors">
+                <Telescope className="h-5 w-5" />
               </a>
             </div>
           </div>
