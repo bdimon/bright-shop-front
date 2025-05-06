@@ -19,10 +19,10 @@ const Hero = () => {
       <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className={`space-y-6 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <h1 className="text-4xl md:text-6xl font-bold text-shop-text">
-            Ваш надежный <span className="text-shop-blue-dark">онлайн-магазин</span> на каждый день
+            Добро пожаловать в наш <span className="text-shop-blue-dark">теплый магазин</span>
           </h1>
           <p className="text-lg text-gray-600 max-w-lg">
-            Более 100 наименований товаров высшего качества с быстрой доставкой по всей России
+            Более 100 наименований связанных вручную изделий с быстрой доставкой по всей Европе
           </p>
           <div className="flex flex-wrap gap-4">
             <Button 
@@ -57,7 +57,7 @@ const Hero = () => {
         <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
           <div className="bg-white p-4 rounded-2xl shadow-xl overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2070&auto=format&fit=crop" 
+              src="/hamed-darzi-gKmXGDQY_Cc-unsplash.jpg" 
               alt="Разнообразные товары" 
               className="w-full h-[400px] object-cover rounded-xl"
             />
@@ -71,7 +71,7 @@ const Hero = () => {
               </div>
               <div>
                 <p className="font-semibold">Бесплатная доставка</p>
-                <p className="text-sm">При заказе от 3000₽</p>
+                <p className="text-sm">При заказе от $30</p>
               </div>
             </div>
           </div>
@@ -95,3 +95,6 @@ const Hero = () => {
 };
 
 export default Hero;
+/*
+inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2 bg-shop-blue-dark hover:bg-shop-blue-dark/90 text-white
+*/

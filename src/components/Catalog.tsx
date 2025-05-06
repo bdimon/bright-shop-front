@@ -7,70 +7,70 @@ import { Button } from '@/components/ui/button';
 const PRODUCTS: Product[] = [
   {
     id: 1,
-    name: "Кухонный комбайн MultiFresh",
+    name: "Шапка с логотипом",
     price: 12990,
-    image: "https://images.unsplash.com/photo-1585037328534-a60c6e170e37?q=80&w=1888&auto=format&fit=crop",
-    category: "Техника для кухни",
+    image: "/hamed-darzi-6dILIIipKHk-unsplash.jpg",
+    category: "Шапки",
     isNew: true
   },
   {
     id: 2,
-    name: "Беспроводной пылесос PowerClean",
+    name: "Шапка теплая",
     price: 8990,
-    image: "https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=1780&auto=format&fit=crop",
-    category: "Бытовая техника",
+    image: "/abdur-ahmanus-ZKxxR7fCiWQ-unsplash.jpg",
+    category: "Шапки",
     isSale: true,
     salePrice: 7490
   },
   {
     id: 3,
-    name: "Умная колонка HomeAssistant",
+    name: "Шапка бини",
     price: 5990,
-    image: "https://images.unsplash.com/photo-1589003511513-f85a13d0dbf2?q=80&w=1964&auto=format&fit=crop",
-    category: "Умный дом"
+    image: "/erik-mclean-CSlBUY-R6dY-unsplash.jpg",
+    category: "Шапки"
   },
   {
     id: 4,
-    name: "Кофемашина BaristaPro",
+    name: "Шарфы вязаные",
     price: 18990,
-    image: "https://images.unsplash.com/photo-1578358679425-5144f0ebe723?q=80&w=1964&auto=format&fit=crop",
-    category: "Техника для кухни"
+    image: "/kelly-sikkema-scarfs-unsplash.jpg",
+    category: "Шарфы и снуды"
   },
   {
     id: 5,
-    name: "Робот-пылесос CleanBot X2",
+    name: "Комплект 1",
     price: 21990,
-    image: "https://images.unsplash.com/photo-1673462788899-9cfec8c744e4?q=80&w=1780&auto=format&fit=crop",
-    category: "Бытовая техника",
+    image: "/abdur-ahmanus-ZKxxR7fCiWQ-unsplash.jpg",
+    category: "Комплекты",
     isNew: true
   },
   {
     id: 6,
-    name: "Увлажнитель воздуха AeroFresh",
+    name: "Шарф вязаный",
     price: 4990,
-    image: "https://images.unsplash.com/photo-1581508823585-1cd1da01189a?q=80&w=1935&auto=format&fit=crop",
-    category: "Климатическая техника",
+    image: "/hamed-darzi-6dILIIipKHk-unsplash.jpg",
+    category: "Шарфы и снуды",
     isSale: true,
     salePrice: 3990
   },
   {
     id: 7,
-    name: "Блендер PowerMix Pro",
+    name: "Комплект шапочка и шарф",
     price: 3490,
-    image: "https://images.unsplash.com/photo-1612883835238-7eb3df7de0cb?q=80&w=1887&auto=format&fit=crop",
-    category: "Техника для кухни"
+    image: "/public/maria-kovalets-e0mkwiV22Mk-unsplash.jpg",
+    category: "Комплекты"
   },
   {
     id: 8,
-    name: "Умные весы FitTrack",
+    name: "Комплект бини и снуд",
     price: 2990,
-    image: "https://images.unsplash.com/photo-1590412634277-168e6946a079?q=80&w=1964&auto=format&fit=crop",
-    category: "Товары для здоровья"
+    image: "/public/kerim-ayar-WWpJViNdatc-unsplash.jpg",
+    category: "Комплекты"
   }
 ];
 
 // Filter category options
-const CATEGORIES = ["Все", "Техника для кухни", "Бытовая техника", "Умный дом", "Климатическая техника", "Товары для здоровья"];
+const CATEGORIES = ["Все", "Шапки", "Шарфы и снуды", "Комплекты"];
 
 const Catalog = () => {
   const [selectedCategory, setSelectedCategory] = useState("Все");
@@ -116,7 +116,7 @@ const Catalog = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shop-text">Каталог товаров</h2>
           <div className="w-24 h-1 bg-shop-blue-dark mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Мы предлагаем только качественные товары от проверенных поставщиков
+            Мы предлагаем только качественные товары связанные вручную с быстрой доставкой по всей Европе
           </p>
         </div>
 

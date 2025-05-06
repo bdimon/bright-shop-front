@@ -91,7 +91,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                placeholder="example@mail.ru"
+                placeholder="example@mail.com"
                 className="w-full"
               />
             </div>
@@ -106,7 +106,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
                 value={formData.phone}
                 onChange={handleChange}
                 required
-                placeholder="+7 (999) 123-45-67"
+                placeholder="+48 123 456 789"
                 className="w-full"
               />
             </div>
@@ -165,8 +165,8 @@ const ContactInfo = () => {
             </div>
             <div>
               <h4 className="text-lg font-medium text-shop-text">Телефон</h4>
-              <p className="text-gray-700">+7 (800) 123-45-67</p>
-              <p className="text-gray-700">+7 (495) 987-65-43</p>
+              <p className="text-gray-700">+48 536 223 178</p>
+              <p className="text-gray-700">+48 537 118 873</p>
             </div>
           </div>
           
@@ -176,8 +176,8 @@ const ContactInfo = () => {
             </div>
             <div>
               <h4 className="text-lg font-medium text-shop-text">Email</h4>
-              <p className="text-gray-700">info@bystromarket.ru</p>
-              <p className="text-gray-700">support@bystromarket.ru</p>
+              <p className="text-gray-700">info@shapkashop.com</p>
+              <p className="text-gray-700">support@shapkashop.com</p>
             </div>
           </div>
           
@@ -187,7 +187,7 @@ const ContactInfo = () => {
             </div>
             <div>
               <h4 className="text-lg font-medium text-shop-text">Адрес</h4>
-              <p className="text-gray-700">г. Москва, ул. Примерная, д. 123</p>
+              <p className="text-gray-700">08-110, Warszawa, Polska, ul. Warszawska 2</p>
               <p className="text-gray-700">Пн-Пт: 9:00 - 20:00, Сб-Вс: 10:00 - 18:00</p>
             </div>
           </div>

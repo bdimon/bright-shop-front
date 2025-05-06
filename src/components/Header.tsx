@@ -37,7 +37,7 @@ const Header = () => {
     )}>
       <div className="container mx-auto flex justify-between items-center">
         <a href="#" className="text-2xl font-bold text-shop-text">
-          БыстроМаркет
+          ШапкаШоп
         </a>
 
         {/* Desktop Navigation */}
