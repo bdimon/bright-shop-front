@@ -11,13 +11,13 @@ const supabase = createClient(
 async function seed() {
   console.log("🔁 Начинаем сидирование...");
 
-  // Очистка таблиц
+  // 1. Очистка таблиц
   await supabase.from("orders").delete().neq("id", "");
   await supabase.from("users").delete().neq("id", "");
   await supabase.from("products").delete().neq("id", "");
   console.log("🧹 Таблицы очищены");
 
-  // Сидинг продуктов
+  // 2. Сидинг продуктов
   const products = Array.from({ length: 100 }, (_, i) => ({
     id: uuidv4(),
     name: `Вязаное изделие #${i + 1}`,
@@ -32,14 +32,7 @@ async function seed() {
   await supabase.from("products").insert(products);
   console.log("🧶 Добавлены 100 товаров");
 
-  // Получим реальные ID продуктов
-  const { data: productList } = await supabase.from("products").select("id");
-  if (!productList || productList.length < 2) {
-    console.error("Ошибка: недостаточно продуктов для заказов");
-    return;
-  }
-
-  // Сидинг пользователей
+  // 3. Сидинг пользователей
   const users = Array.from({ length: 5 }, (_, i) => ({
     id: uuidv4(),
     email: `user${i + 1}@test.com`,
@@ -49,20 +42,19 @@ async function seed() {
   await supabase.from("users").insert(users);
   console.log("👤 Добавлены 5 пользователей");
 
-  // Сидинг заказов
+  // 4. Сидинг заказов
   const orders = users.flatMap((user) =>
     Array.from({ length: 2 }, () => {
       const total = Math.floor(Math.random() * 5000) + 1000;
-      const selectedProducts = productList.slice(0, 2); // первые 2
       return {
         id: uuidv4(),
         user_id: user.id,
         total,
         status: "created",
-        items: selectedProducts.map((p) => ({
-          product_id: p.id,
-          quantity: Math.floor(Math.random() * 3) + 1,
-        })),
+        items: [
+          { product_id: uuidv4(), quantity: 1 },
+          { product_id: uuidv4(), quantity: 2 },
+        ],
         created_at: new Date().toISOString(),
       };
     })
