@@ -1,5 +1,5 @@
-// scripts/seed.ts
-import { supabase } from "../lib/supabase";
+/// scripts/seed.ts
+import { supabase } from "@/lib/supabase";
 import { v4 as uuidv4 } from "uuid";
 
 async function seedProducts() {
