@@ -12,14 +12,27 @@ const supabase = createClient(
 //   console.log("🔁 Начинаем сидирование...");
 
   // 1. Очистка таблиц
+//   async function clearTable(tableName: string) {
+//     const { error } = await supabase.rpc("truncate_table", { table_name: tableName }); // supabase.from(tableName")
+//     if (error) {
+//       console.error(`Ошибка при очистке таблицы ${tableName}:`, error);
+//     } else {
+//       console.log(`🧹 Таблица ${tableName} очищена`);
+//     }
+//   }
   async function clearTable(tableName: string) {
-    const { error } = await supabase.rpc("truncate_table", { table_name: tableName }); // supabase.from(tableName")
+    const { data, error, count } = await supabase
+      .from(tableName)
+      .delete({ count: "exact" })
+      .not("id", "is", null); // Удалить все строки
+
     if (error) {
-      console.error(`Ошибка при очистке таблицы ${tableName}:`, error);
+      console.error(`❌ Ошибка при очистке таблицы ${tableName}:`, error);
     } else {
-      console.log(`🧹 Таблица ${tableName} очищена`);
+      console.log(`🧹 Таблица ${tableName} очищена. Удалено строк: ${count}`);
     }
   }
+
 
   // 2. Сидинг продуктов
   async function seedProducts() {
