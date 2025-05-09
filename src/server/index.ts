@@ -3,12 +3,16 @@ import cors from "cors";
 import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
 import { v4 as uuidv4 } from "uuid";
+import authRouter from "../routes/auth/register";
+import loginRoute from "../routes/auth/login";
 
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use("/api/auth/register", authRouter);
+app.use("/api/auth/login", loginRoute);
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
@@ -65,6 +69,9 @@ app.post("/api/orders", async (req, res) => {
   res.status(201).json({ message: "Заказ создан" });
 });
 
+/** ---------------------- AUTH ---------------------- **/
+// app.use("/api/auth", authRouter);
+
 // 🧪 Пример авторизации
 app.post("/api/auth/login", async (req, res) => {
   const { email, password } = req.body;
@@ -81,3 +88,4 @@ const PORT = process.env.PORT || 3010;
 app.listen(PORT, () => {
   console.log(`🟢 API сервер запущен на http://localhost:${PORT}`);
 });
+
