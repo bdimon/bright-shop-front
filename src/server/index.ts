@@ -77,7 +77,7 @@ app.post("/api/auth/login", async (req, res) => {
   res.json(data);
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3010;
 app.listen(PORT, () => {
   console.log(`🟢 API сервер запущен на http://localhost:${PORT}`);
 });
