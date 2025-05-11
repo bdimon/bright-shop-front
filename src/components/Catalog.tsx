@@ -2,7 +2,68 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ProductCard, { Product } from './ProductCard';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import { RawProduct} from '@/types/product';
 
+
+export default function Catalog() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("http://localhost:3010/api/products")
+      .then((res) => {
+        if (!res.ok) throw new Error("Ошибка загрузки товаров");
+        return res.json();
+      })
+      .then((res) => {
+        const data: Product[] = res.data.map((item: RawProduct) => ({
+          id: item.id,
+          name: item.name,
+          description: item.description,
+          price: item.price,
+          images: item.images,
+          category: item.category[0], // если нужен один
+          isNew: item.isnew,
+          isSale: item.issale,
+          salePrice: item.saleprice ?? undefined,
+        }));
+        setProducts(data);
+      })
+      
+      .catch((error) => {
+        console.error("Ошибка при получении данных:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+      
+  }, []);
+  // console.log(products);
+
+
+  if (loading) return <div className="text-center p-4">Загрузка...</div>;
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {products.map((product) => (
+        <div key={product.id} className="border rounded-lg shadow hover:shadow-md transition">
+          <Link to={`/catalog/${product.id}`} className="flex flex-col p-4">
+            <img
+              src={product.images[0]}
+              alt={product.name}
+              className="w-full h-48 object-cover mb-4 rounded"
+            />
+            <h2 className="text-lg font-semibold">{product.name}</h2>
+            <p className="text-gray-500">{product.description}</p>
+            <p className="mt-auto font-bold">{product.price} ₽</p>
+          </Link>
+        </div>
+      ))}
+    </div>
+  );
+}
+/*
 // Mock products data
 const PRODUCTS: Product[] = [
   {
@@ -167,4 +228,5 @@ const Catalog = () => {
   );
 };
 
-export default Catalog;
+
+*/

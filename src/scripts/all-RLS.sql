@@ -40,3 +40,4 @@ CREATE POLICY "Update order for self"
   FOR UPDATE
   TO authenticated
   USING (auth.uid() = user_id);
+  
