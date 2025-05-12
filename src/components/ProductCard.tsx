@@ -4,16 +4,14 @@ import { Button } from '@/components/ui/button';
 import { ShoppingCart } from 'lucide-react';
 
 export interface Product {
-  id: string;
+  id: number;
   name: string;
-  description: string;
   price: number;
-  images: string[];
+  image: string;
   category: string;
   isNew?: boolean;
   isSale?: boolean;
   salePrice?: number;
-  created_at?: string;
 }
 
 interface ProductCardProps {
@@ -25,7 +23,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
       <div className="relative h-64 overflow-hidden">
         <img 
-          src={product.images[0]} 
+          src={product.image} 
           alt={product.name} 
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
